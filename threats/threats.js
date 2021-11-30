@@ -40,7 +40,7 @@ app.get('/threats', (req, res) => {
 });
 
 
-// Assigne un hero à une threat - mais utilise 'request' donc ne pas reprendre ce modèle
+// Assigne un hero à une threat - mais utilise 'request' donc ne pas reprendre ce modèle et l'adapter avec 'axios'
 app.post('/assignment', (req, res) => {
   request.post({
       headers: {'content-type': 'application/json'},

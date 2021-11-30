@@ -1,4 +1,4 @@
 Installer :
 
 npm init -y
-npm install express body-parser request
+npm install express body-parser axios
