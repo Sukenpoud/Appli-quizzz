@@ -1,4 +1,4 @@
-1. Afficher données des microservices AVEC l'api gateway
+1. Afficher données des microservices AVEC l'api gateway : fait
 
 2. Envoyer des données dans les microservices avec l'api gateway
 

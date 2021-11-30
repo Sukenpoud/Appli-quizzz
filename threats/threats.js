@@ -39,6 +39,8 @@ app.get('/threats', (req, res) => {
   res.send(threats);
 });
 
+
+// Assigne un hero à une threat - mais utilise 'request' donc ne pas reprendre ce modèle
 app.post('/assignment', (req, res) => {
   request.post({
       headers: {'content-type': 'application/json'},

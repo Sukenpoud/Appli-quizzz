@@ -79,5 +79,24 @@ app.post('/hero/**', (req, res) => {
 
 app.use('/img', express.static(path.join(__dirname,'img')));
 
+// J'ai rien fait ici c'était un test
+app.post('/user/add', (req, res) => {
+  const heroId = parseInt(req.params[0]);
+  const foundHero = heroes.find(subject => subject.id === heroId);
+
+  if (foundHero) {
+      for (let attribute in foundHero) {
+          if (req.body[attribute]) {
+              foundHero[attribute] = req.body[attribute];
+              console.log(`Set ${attribute} to ${req.body[attribute]} in hero: ${heroId}`);
+          }
+      }
+      res.status(202).header({Location: `http://localhost:${port}/hero/${foundHero.id}`}).send(foundHero);
+  } else {
+      console.log(`Hero not found.`);
+      res.status(404).send();
+  }
+});
+
 console.log(`Heroes service listening on port ${port}`);
 app.listen(port);
