@@ -2,12 +2,12 @@
 
 # Par Cron et Axilais
 
-# cd api-gateway
-# npm install express
-# node app.js
+# Pour chaque microservice :
 
-# cd heroes
+# cd game
 # npm install express
-# node heroes.js 
+# npm install esm
+# npm i node-json-db
+# node -r esm game.js 8081
 
 

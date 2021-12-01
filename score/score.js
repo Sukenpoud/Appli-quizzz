@@ -13,8 +13,7 @@ var db = new JsonDB(new Config("db-score", true, false, '/'));
 
 app.use(bodyParser.json());
 
-const gameService = 'http://localhost:8083';
-
+const gameService = 'http://localhost:8081';
 
 // Afficher les scores de l'utilisateur connecté
 // Créer un filtre qui affiche uniquement les scores de l'utilisateur à partir de son ID
@@ -23,14 +22,13 @@ app.get('/score', (req, res) => {
   res.send(db.getData("/"));
 });
 
-app.post('/score/:score', (req, res, next) => {
-    console.log(req.params.score);
-    res.send(db.push)
-    res.status(201).json({
-      message: 'Objet créé !'
-    });
+app.post('/score', (req, res) => {
+  console.log(res);
+  //res.send(db.push)
+  res.status(201).json({
+    message: 'Score ajouté !'
+  });
 });
-
 
 console.log(`Micro-service Score listening on port ${port}`);
 app.listen(port);

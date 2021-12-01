@@ -12,8 +12,10 @@ import { Config } from 'node-json-db/dist/lib/JsonDBConfig'
 var db = new JsonDB(new Config("db-game", true, false, '/'));
 
 app.use(bodyParser.json());
-const scoreService = 'http://localhost:8084';
-const userService = 'http://localhost:8085';
+
+const gameService = 'http://localhost:8081';
+const scoreService = 'http://localhost:8082';
+const userService = 'http://localhost:8083';
 
 app.get('/game', (req, res) => {
   console.log('Returning games list');
@@ -36,31 +38,24 @@ app.get('/game/categories/:id', (req, res) => {
 app.post('/game', (req, res) => {
     const userID = 1;
     const score = 2;
-    axios.post('/score', {
-        userID: userID,
-        score: score  
+    axios.post(scoreService +'/score', {
+        userID: '1',
+        score: '2'  
       })
       .then(function (response) {
-        console.log(response);
+        //console.log(response.data);
+        console.log(req.body);
+        res.status(201).json({
+            message: 'Post vers Score OK !'
+        });
       })
       .catch(function (error) {
         console.log(error);
-      });
-    console.log(req.params);
-    res.status(201).json({
-      message: 'Post vers Score OK !'
     });
-  });
-
-  app.post('/score', (req, res) => {
-    console.log(req.params);
-    //res.send(db.push)
-    res.status(201).json({
-      message: 'Score ajouté !'
-    });
+    //console.log(res);
   });
 
 app.use('/img', express.static(path.join(__dirname,'img')));
 
-console.log(`Threats service listening on port ${port}`);
+console.log(`Micro-service Game listening on port ${port}`);
 app.listen(port);

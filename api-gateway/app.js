@@ -8,8 +8,8 @@ const app = express();
 
 app.use(bodyParser.json());
 
-const gameService = 'http://localhost:8083';
-const scoreService = 'http://localhost:8084';
+const gameService = 'http://localhost:8081';
+const scoreService = 'http://localhost:8082';
 
 // Appeler et afficher les données du micro-service THREATS
 app.get('/gateway/threats', (req, res) => {
