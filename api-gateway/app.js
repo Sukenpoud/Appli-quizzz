@@ -10,6 +10,7 @@ app.use(bodyParser.json());
 
 const gameService = 'http://localhost:8081';
 const scoreService = 'http://localhost:8082';
+const userService = 'http://localhost:8083';
 
 // Appeler et afficher les données du micro-service THREATS
 app.get('/gateway/threats', (req, res) => {
@@ -43,7 +44,7 @@ app.get('/gateway/game/categories', (req, res) => {
 
 // Ajouter un utilisateur -> n'est relié à rien mais c'est juste pour te montrer la forme pour envoyer des données
 app.post('/gateway/register', (req, res) => {
-    axios.post(`${heroesService}/user/add`, {
+    axios.post(`${userService}/user/add`, {
         email: 'test@mail.com',
         password: 'mdfkoejo'
     })
