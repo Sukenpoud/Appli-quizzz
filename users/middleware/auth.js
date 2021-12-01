@@ -1,6 +1,6 @@
 const jwt = require('jsonwebtoken');
 
-req.auth = { userId };
+//req.auth = { userId };
 
 module.exports = (req, res, next) => {
   try {

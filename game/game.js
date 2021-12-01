@@ -12,8 +12,8 @@ import { Config } from 'node-json-db/dist/lib/JsonDBConfig'
 var db = new JsonDB(new Config("db-game", true, false, '/'));
 
 app.use(bodyParser.json());
-const scoreService = 'http://localhost:8084';
-const userService = 'http://localhost:8085';
+const scoreService = 'http://localhost:8082';
+const userService = 'http://localhost:8083';
 
 app.get('/game', (req, res) => {
   console.log('Returning games list');

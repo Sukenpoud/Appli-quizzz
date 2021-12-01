@@ -1,4 +1,8 @@
 const jwt = require('jsonwebtoken');
+const bcrypt = require('bcrypt');
+const { DatabaseConnection } = require('../database-connection');
+
+let databaseConnection = DatabaseConnection.getConnection();
 
 exports.signup = (req, res, next) => {
     bcrypt.hash(req.body.password, 10).then(
@@ -7,7 +11,7 @@ exports.signup = (req, res, next) => {
           email: req.body.email,
           password: hash
         });
-        user.save().then(
+        databaseConnection.push('/users[]', user).then(
           () => {
             res.status(201).json({
               message: 'User added successfully!'

@@ -8,13 +8,11 @@ const app = express();
 
 app.use(bodyParser.json());
 
-const scoreService = 'http://localhost:8084';
+const scoreService = 'http://localhost:8082';
 
 
-const stuffRoutes = require('./routes/stuff');
 const userRoutes = require('./routes/user');
 
-app.use('/api/stuff', stuffRoutes);
 app.use('/api/auth', userRoutes);
 
 console.log(`Micro-service users listening on port ${port}`);
