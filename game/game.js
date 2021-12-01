@@ -13,6 +13,7 @@ var db = new JsonDB(new Config("db-game", true, false, '/'));
 
 app.use(bodyParser.json());
 const scoreService = 'http://localhost:8084';
+const userService = 'http://localhost:8085';
 
 app.get('/game', (req, res) => {
   console.log('Returning games list');
@@ -24,13 +25,7 @@ app.get('/game/categories/', (req, res) => {
     res.send(db.getData("/0/categorie") +" "+ db.getData("/1/categorie") +" "+ db.getData("/2/categorie"));
 });
 
-
 app.get('/game/categories/:id', (req, res) => {
-    console.log('Returning games categories list');
-    res.send(db.getData("/"+req.params.id+"/questions"));
-});
-
-app.post('/game/categories/:id', (req, res) => {
     console.log('Returning games categories list');
     res.send(db.getData("/"+req.params.id+"/questions"));
 });
@@ -39,9 +34,11 @@ app.post('/game/categories/:id', (req, res) => {
 //Calcul du score
 //puis post vers la fonction score score
 app.post('/game', (req, res) => {
-    axios.post('/user', {
-        userID: "1",
-        score: "2"  
+    const userID = 1;
+    const score = 2;
+    axios.post('/score', {
+        userID: userID,
+        score: score  
       })
       .then(function (response) {
         console.log(response);
@@ -51,7 +48,15 @@ app.post('/game', (req, res) => {
       });
     console.log(req.params);
     res.status(201).json({
-      message: 'Objet créé !'
+      message: 'Post vers Score OK !'
+    });
+  });
+
+  app.post('/score', (req, res) => {
+    console.log(req.params);
+    //res.send(db.push)
+    res.status(201).json({
+      message: 'Score ajouté !'
     });
   });
 
