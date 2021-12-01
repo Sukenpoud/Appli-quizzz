@@ -39,27 +39,6 @@ app.get('/threats', (req, res) => {
   res.send(threats);
 });
 
-
-// Assigne un hero à une threat - mais utilise 'request' donc ne pas reprendre ce modèle et l'adapter avec 'axios'
-app.post('/assignment', (req, res) => {
-  request.post({
-      headers: {'content-type': 'application/json'},
-      url: `${heroesService}/hero/${req.body.heroId}`,
-      body: `{
-          "busy": true
-      }`
-  }, (err, heroResponse, body) => {
-      if (!err) {
-          const threatId = parseInt(req.body.threatId);
-          const threat = threats.find(subject => subject.id === threatId);
-          threat.assignedHero = req.body.heroId;
-          res.status(202).send(threat);
-      } else {
-          res.status(400).send({problem: `Hero Service responded with issue ${err}`});
-      }
-  });
-});
-
 app.use('/img', express.static(path.join(__dirname,'img')));
 
 console.log(`Threats service listening on port ${port}`);
