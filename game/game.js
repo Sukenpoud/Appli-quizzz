@@ -38,13 +38,11 @@ app.get('/game/categories/:id', (req, res) => {
 app.post('/game', (req, res) => {
     const userID = 1;
     const score = 2;
-    axios.post(scoreService +'/score', {
+    axios.get(scoreService +'/score', {
         userID: '1',
         score: '2'  
       })
       .then(function (response) {
-        //console.log(response.data);
-        console.log(req.body);
         res.status(201).json({
             message: 'Post vers Score OK !'
         });

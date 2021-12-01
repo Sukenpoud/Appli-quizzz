@@ -30,5 +30,7 @@ app.post('/score', (req, res) => {
   });
 });
 
+//puis post
+
 console.log(`Micro-service Score listening on port ${port}`);
 app.listen(port);
