@@ -1,0 +1,19 @@
+{
+  "name": "score",
+  "version": "1.0.0",
+  "description": "Installer :",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "axios": "^0.24.0",
+    "body-parser": "^1.19.0",
+    "esm": "^3.2.25",
+    "express": "^4.17.1",
+    "node-json-db": "^1.4.1"
+  }
+}

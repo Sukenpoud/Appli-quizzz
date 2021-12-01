@@ -1,0 +1,24 @@
+[
+   {
+      "userId":"1",
+      "scoreTable":[
+         {
+            "score":"15"
+         },
+         {
+            "score":"12"
+         }
+      ]
+   },
+   {
+      "userId":"2",
+      "scoreTable":[
+         {
+            "score":"3"
+         },
+         {
+            "score":"7"
+         }
+      ]
+   }
+]
