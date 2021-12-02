@@ -4,10 +4,5 @@
 
 # Pour chaque microservice :
 
-# cd game
-# npm install express
-# npm install esm
-# npm i node-json-db
-# node -r esm game.js 8081
-
+# Lire de README et exécuter les commandes indiquées
 
