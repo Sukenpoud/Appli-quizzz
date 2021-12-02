@@ -1,17 +1,20 @@
 const jwt = require('jsonwebtoken');
 const bcrypt = require('bcrypt');
-const { DatabaseConnection } = require('../database-connection');
 
-let databaseConnection = DatabaseConnection.getConnection();
+import { JsonDB } from 'node-json-db';
+import { Config } from 'node-json-db/dist/lib/JsonDBConfig';
+
+const db = new JsonDB(new Config('db-users.json', true, true, '/'));
+
 
 exports.signup = (req, res, next) => {
     bcrypt.hash(req.body.password, 10).then(
       (hash) => {
-        const user = new User({
+        const user = {
           email: req.body.email,
           password: hash
-        });
-        databaseConnection.push('/users[]', user).then(
+        };
+        db.push('/users[]', user).then(
           () => {
             res.status(201).json({
               message: 'User added successfully!'

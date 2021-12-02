@@ -1,10 +1,8 @@
-Installer :
+# Installer :
 
-npm init -y
-npm install express body-parser axios node-json-db
+# npm init -y
+# npm install express body-parser axios node-json-db esm
 
-npm install esm
+# Lancer le micro-service :
 
-Lancer le micro-service comme ça :
-
-node -r esm appScore.js 8085
+# node -r esm score.js 8082

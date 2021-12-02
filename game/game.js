@@ -27,22 +27,23 @@ app.get('/game/categories/', (req, res) => {
     res.send(db.getData("/0/categorie") +" "+ db.getData("/1/categorie") +" "+ db.getData("/2/categorie"));
 });
 
-app.get('/game/categories/:id', (req, res) => {
-    console.log('Returning games categories list');
-    res.send(db.getData("/"+req.params.id+"/questions"));
+app.get('/game/questions/', (req, res) => {
+    console.log('Returning questions games categories list');
+    // res.send(db.getData("/"+req.params.id+"/questions"));
+    res.send(db.getData("/0/categories/questions"));
 });
 
 //envoie du score au microservice score
 //Calcul du score
 //puis post vers la fonction score score
 app.post('/game', (req, res) => {
-    const userID = 1;
-    const score = 2;
-    axios.get(scoreService +'/score', {
+    axios.post(`${scoreService}/score`, {
         userID: '1',
         score: '2'  
       })
       .then(function (response) {
+        //console.log(response.data);
+        console.log(req.body);
         res.status(201).json({
             message: 'Post vers Score OK !'
         });
@@ -51,7 +52,7 @@ app.post('/game', (req, res) => {
         console.log(error);
     });
     //console.log(res);
-  });
+});
 
 app.use('/img', express.static(path.join(__dirname,'img')));
 
