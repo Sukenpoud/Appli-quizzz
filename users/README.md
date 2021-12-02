@@ -1,11 +1,9 @@
-Installé pour tous les micro-services :
+# Installer :
 
-npm init -y
-npm install express body-parser axios
-
-npm install jsonwebtoken node-json-db
+# npm init -y
+# npm install express body-parser axios jsonwebtoken node-json-db esm bcrypt
 
 
-Installé en suivant le tuto OpenClassroom :
+# Installer mais ne fonctionne pas :
 
-npm install --save mongoose mongoose-unique-validator bcrypt
+# npm install --save mongoose mongoose-unique-validator 
